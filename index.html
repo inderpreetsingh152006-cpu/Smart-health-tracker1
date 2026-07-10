@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Health Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        <img src="\IMAGES\logo1.jpg" alt="Logo">
+        <h1>Smart  Health Tracker</h1>
+    </div>
+
+    <button onclick="login()">Login</button>
+</header>
+
+<!-- MAIN SECTION -->
+<section class="container">
+
+    <!-- LEFT TEXT -->
+    <div class="text-section">
+        <h2>Track your progress and move toward a better life.</h2>
+        <p>
+            Keep yourself active and healthy by monitoring your activities easily.
+        </p>
+        <button class="btn" onclick="startApp()">Get Started</button>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="image-section">
+        <img src="\IMAGES\img2.jpg" alt="Runner">
+
+        
+    </div>
+
+</section>
+
+<script>
+function startApp() {
+    alert("Welcome to Smart Health Tracker 🚀");
+}
+
+function login() {
+    alert("Login Page Coming Soon 🔐");
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</div>
+<!--2nd page-->
+<div class="trends-container">
+
+    <!-- HEADER -->
+    <div class="trends-header">
+        <h2>Health Trends</h2>
+        <div class="tabs">
+            <button onclick="changeData('day', this)">Day</button>
+            <button class="active" onclick="changeData('month', this)">Month</button>
+            <button onclick="changeData('year', this)">Year</button>
+        </div>
+    </div>
+
+    <!-- CARD 1 (Calories Graph) -->
+    <div class="trend-card">
+
+        <div class="card-top">
+            <h4><i class="fa-solid fa-fire"></i> Calories</h4>
+            <span id="avgText">Monthly Avg</span>
+        </div>
+        
+
+        <h2 id="calValue">94.13 kcal</h2>
+
+        <div class="bars" id="barChart"></div>
+         <h3>Daily Progress</h3>
+
+    <!-- STEPS -->
+    <div class="card-item">
+        <span>Steps 👣</span>
+        <div class="progress-bar">
+            <div id="stepsProgress" class="progress"></div>
+        </div>
+        <p id="stepsText">0 / 10000</p>
+    </div>
+
+    </div>
+
+    <!-- CARD 2 (Progress Section) -->
+    <div class="trend-card">
+
+        <h4><i class="fa-solid fa-chart-line"></i> Weekly Highlight</h4>
+
+        <div class="progress-item">
+            <p><i class="fa-solid fa-fire"></i> Calories</p>
+            <div class="progress-bar">
+                <span id="calProgress"></span>
+            </div>
+            <span id="calPercent"></span>
+        </div>
+
+        <div class="progress-item">
+            <p><i class="fa-solid fa-person-walking"></i> Steps</p>
+            <div class="progress-bar">
+                <span id="stepProgress"></span>
+            </div>
+            <span id="stepPercent"></span>
+        </div>
+
+        <div class="progress-item">
+            <p><i class="fa-solid fa-dumbbell"></i> Burned</p>
+            <div class="progress-bar">
+                <span id="burnProgress"></span>
+            </div>
+            <span id="burnPercent"></span>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+// DATA
+const data = {
+    day: {
+        label: "Daily Avg",
+        value: "450 kcal",
+        bars: [20, 40, 60, 30, 80],
+        progress: [30, 20, 50]
+    },
+    month: {
+        label: "Monthly Avg",
+        value: "94.13 kcal",
+        bars: [40, 60, 90, 50, 80],
+        progress: [62, 40, 100]
+    },
+    year: {
+        label: "Yearly Avg",
+        value: "1200 kcal",
+        bars: [70, 50, 90, 60, 85],
+        progress: [75, 55, 90]
+    }
+};
+
+// LOAD DEFAULT
+window.onload = () => {
+    loadData('month');
+};
+
+// TAB SWITCH
+function changeData(type, btn) {
+
+    document.querySelectorAll('.tabs button').forEach(b => {
+        b.classList.remove('active');
+    });
+
+    btn.classList.add('active');
+    loadData(type);
+}
+
+// LOAD DATA
+function loadData(type) {
+
+    const selected = data[type];
+
+    // TEXT
+    document.getElementById("avgText").innerText = selected.label;
+    document.getElementById("calValue").innerText = selected.value;
+
+    // GRAPH
+    const chart = document.getElementById("barChart");
+    chart.innerHTML = "";
+
+    selected.bars.forEach((h, i) => {
+        const bar = document.createElement("div");
+        bar.className = "bar";
+
+        if (i === 2) bar.classList.add("active");
+
+        const span = document.createElement("span");
+        span.style.height = h + "%";
+
+        bar.appendChild(span);
+        chart.appendChild(bar);
+    });
+
+    // PROGRESS
+    document.getElementById("calProgress").style.width = selected.progress[0] + "%";
+    document.getElementById("stepProgress").style.width = selected.progress[1] + "%";
+    document.getElementById("burnProgress").style.width = selected.progress[2] + "%";
+
+    document.getElementById("calPercent").innerText = selected.progress[0] + "%";
+    document.getElementById("stepPercent").innerText = selected.progress[1] + "%";
+    document.getElementById("burnPercent").innerText = selected.progress[2] + "%";
+}
+
+</script>
+
+<!--3rd page-->
+ <div class="header">
+        <div>
+            <p>Hi Alex,</p>
+            <h2>Welcome!</h2>
+        </div>
+        <div class="bell">🔔</div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="main-card">
+        <div class="progress-circle">
+            <span id="steps">3813</span>
+            <p> <span> 👣</span></p>
+            <p>Steps</p>
+        </div>
+ 
+        <div class="details">
+            <p><span>🔥</span> 400 Kcal</p>
+            <p><span>⏱</span> 00:40:23</p>
+            <p><span>📍</span> 3.7 Km</p>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="recent">
+        <h3>Recent Activity</h3>
+        <div id="activityList"></div>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+        <div class="card">Walk<br><b>5.2 Km</b></div>
+        <div class="card">Yoga<br><b>1.2 hrs</b></div>
+        <div class="card">Calories<br><b>400 kcal</b></div>
+        <div class="card">Sleep<br><b>7 hrs</b></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+        <button onclick="addActivity('Walk')">Walk</button>
+        <button onclick="addActivity('Yoga')">Yoga</button>
+        <button onclick="addActivity('Run')">Run</button>
+    </div>
+
+</div>
+
+
+
+<script>
+// FIFO Queue
+let activityQueue = [];
+
+// LRU Cache
+let lruCache = [];
+
+function addActivity(type) {
+    let time = new Date().toLocaleTimeString();
+
+    let activity = {
+        type: type,
+        time: time
+    };
+
+    // FIFO logic
+    activityQueue.push(activity);
+    if (activityQueue.length > 5) {
+        activityQueue.shift();
+    }
+
+    // LRU logic
+    updateLRU(type);
+
+    displayActivities();
+}
+
+function updateLRU(type) {
+    let index = lruCache.indexOf(type);
+
+    if (index !== -1) {
+        lruCache.splice(index, 1);
+    }
+
+    lruCache.push(type);
+
+    if (lruCache.length > 3) {
+        lruCache.shift();
+    }
+
+    console.log("LRU Cache:", lruCache);
+}
+
+function displayActivities() {
+    let container = document.getElementById("activityList");
+    container.innerHTML = "";
+
+    activityQueue.forEach(act => {
+        let div = document.createElement("div");
+        div.className = "activity";
+        div.innerHTML = `${act.type} - ${act.time}`;
+        container.appendChild(div);
+    });
+}
+</script>
+<!--4th page-->
+<!-- 4th SECTION (FIFO + LRU Chart) -->
+<div class="chart-container">
+
+    <h2>📊 Health Chart (FIFO + LRU)</h2>
+
+    <input type="number" id="calInput" placeholder="Calories">
+    <input type="number" id="stepInput" placeholder="Steps">
+    <input type="number" id="burnInput" placeholder="Burned">
+
+    <br>
+
+    <button onclick="addData()">Add Data</button>
+
+    <canvas id="myChart"></canvas>
+
+    <div id="lruBox">
+        <b>LRU Activities:</b>
+        <p id="lruText">None</p>
+    </div>
+
+</div>
+<script>
+    // FIFO QUEUE (max 5 entries)
+let caloriesQueue = [];
+let stepsQueue = [];
+let burnedQueue = [];
+let labels = [];
+
+// LRU CACHE (max 3)
+let lruCacheChart = [];
+
+let myChart;
+
+// ADD DATA
+function addData() {
+
+    let cal = document.getElementById("calInput").value;
+    let step = document.getElementById("stepInput").value;
+    let burn = document.getElementById("burnInput").value;
+
+    if (!cal || !step || !burn) {
+        alert("Enter all values!");
+        return;
+    }
+
+    let time = new Date().toLocaleTimeString();
+
+    // FIFO
+    caloriesQueue.push(Number(cal));
+    stepsQueue.push(Number(step));
+    burnedQueue.push(Number(burn));
+    labels.push(time);
+
+    if (caloriesQueue.length > 5) {
+        caloriesQueue.shift();
+        stepsQueue.shift();
+        burnedQueue.shift();
+        labels.shift();
+    }
+
+    // LRU
+    updateLRUChart("Calories");
+    updateLRUChart("Steps");
+    updateLRUChart("Burned");
+
+    updateChart();
+}
+
+// LRU FUNCTION
+function updateLRUChart(type) {
+
+    let index = lruCacheChart.indexOf(type);
+
+    if (index !== -1) {
+        lruCacheChart.splice(index, 1);
+    }
+
+    lruCacheChart.push(type);
+
+    if (lruCacheChart.length > 3) {
+        lruCacheChart.shift();
+    }
+
+    document.getElementById("lruText").innerText = lruCacheChart.join(" → ");
+}
+
+// UPDATE CHART
+function updateChart() {
+
+    if (myChart) {
+        myChart.destroy();
+    }
+
+    const ctx = document.getElementById("myChart").getContext("2d");
+
+    myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Calories 🔥",
+                    data: caloriesQueue,
+                    backgroundColor: "#ff6384"
+                },
+                {
+                    label: "Steps 👣",
+                    data: stepsQueue,
+                    backgroundColor: "#36a2eb"
+                },
+                {
+                    label: "Burned 💪",
+                    data: burnedQueue,
+                    backgroundColor: "#4caf50"
+                }
+            ]
+        }
+    });
+}
+
+// Load empty chart
+window.addEventListener("load", updateChart);
+
+</script>
+</body>
+</html>

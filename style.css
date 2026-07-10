@@ -1,0 +1,427 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #f8d7e8, #ffffff);
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+/* LOGO SECTION */
+header {
+    background: rgb(182, 81, 182);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.logo h1 {
+    color: #6a1b9a;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.logo h1:hover {
+    color: #3e1f4a;
+    transform: scale(1.05);
+}
+
+/* LOGIN BUTTON */
+header button {
+    padding: 10px 20px;
+    border: none;
+    background: #6a1b9a;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+header button:hover {
+    background: #8e44ad;
+}
+
+/* MAIN SECTION */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 80px;
+}
+
+/* TEXT */
+.text-section {
+    max-width: 500px;
+}
+
+.text-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #4e1571;
+    
+}
+
+.text-section p {
+    color: rgb(56, 6, 35);
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+
+.btn {
+    padding: 15px 30px;
+    background:#6a1b9a;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #8e44ad;
+}
+
+/* IMAGE */
+.image-section {
+    position: relative;
+}
+
+.image-section img {
+    width: 800px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* 2nd page*/
+body {
+    font-family: Arial, sans-serif;
+    background:#f8d7e8;
+}
+
+/* CONTAINER */
+.trends-container {
+    max-width: 2000px;
+    max-height: 5000px;
+    margin: auto;
+    padding: 30px;
+}
+
+/* HEADER */
+.trends-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tabs button {
+    border: none;
+    padding: 6px 12px;
+    margin-left: 5px;
+    border-radius: 20px;
+    background: #af249f;
+    cursor: pointer;
+}
+
+.tabs .active {
+    background: #810e83;
+    color: white;
+}
+
+/* CARD */
+.trend-card {
+    background:  #f8d7e8;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(21, 16, 16);
+}
+.card-item {
+    margin-bottom: 80px;
+}
+
+
+/* GRAPH */
+.bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 120px;
+}
+
+.bar {
+    width: 20px;
+    background: #faf5f5;
+    border-radius: 10px;
+    position: relative;
+}
+
+.bar span {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background:  #bb50af;
+    border-radius: 10px;
+}
+
+.bar.active span {
+    background:  #bb50af;
+}
+
+/* PROGRESS */
+.progress-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    width: 70%;
+    height: 10px;
+    background: #c5b6c6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar span {
+    display: block;
+    height: 100%;
+    background: #bb50af;
+   
+}
+
+/* Card spacing */
+.card-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;  
+    font-size: 25px;
+}
+
+/* Steps + icon alignment */
+.steps-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;   
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Progress bar */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+/* Progress fill */
+.progress {
+    height: 100%;
+    width: 30%;   /* demo */
+    background:  #bb50af;
+    border-radius: 10px;
+}
+
+/* Bottom text */
+#stepsText {
+    margin: 0;
+    color: gray;
+}
+/*  3rd page */
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to bottom, #fce7f3, #ffffff);
+}
+
+.container {
+    max-width: 1999px;
+    margin: auto;
+    padding: 15px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header p{
+    font-size: 25px;
+}
+
+.bell {
+    font-size: 40px;
+    background: rgb(249, 247, 247);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+/* Main Card */
+.main-card {
+    background:  #feebf6;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.progress-circle {
+    width: 200px;
+    height: 200px;
+    border: 10px solid purple;
+    border-radius: 100%;
+    text-align: center;
+    padding-top: 25px;
+    font-weight: bold;
+}
+.progress-circle span{
+    text-align: center;
+    font-size: 35px;
+}
+.progress-circle p{
+    text-align: center;
+    font-size: 35px;
+}
+
+
+.details p {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+     margin: 8px 0;
+    font-size: 25px;
+    padding: 15px;;
+}
+
+/* Recent */
+.recent {
+    margin-top: 30px;
+    font-size: 25px;
+    background-color:  #feebf6;
+}
+
+.activity {
+    background: #efbeec;
+    padding: 7px;
+    border-radius: 7px;
+    margin-top: 5px;
+   
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.card {
+    background: #efbeec;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 25px;
+    
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+button {
+    padding: 20px 20px;
+    margin: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    background: purple;
+    color: white;
+    cursor: pointer;
+}
+
+/* 4th page*/
+/* FIFO + LRU Chart Section */
+.chart-container {
+    width: 95%;
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    
+}
+.chart-container h2{
+    padding: 25px;
+}
+#calInput{
+    padding: 6px;
+}
+#stepInput{
+    padding: 6px;
+}
+#burnInput{
+    padding: 6px;
+}
+
+#lruBox {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f3e5f5;
+    border-radius: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-section img {
+        width: 250px;
+        height: auto;
+        margin-top: 30px;
+    }
+
+    .tag {
+        display: none;
+    }
+}
